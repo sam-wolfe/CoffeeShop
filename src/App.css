@@ -1,38 +1,47 @@
-.App {
+
+/* 
+
+    font-family: 'Lato', sans-serif;
+
+    font-family: 'Playfair Display', serif;
+
+    font-family: 'Roboto Slab', serif;
+
+*/
+
+body {
+    background-color: #52565f;
+}
+
+/* .App {
   text-align: center;
+} */
+
+/* {'background': 'url(./img/blue_coffee.jpg) no-repeat fixed center', width: '100%', height: '100vh'} */
+
+.b-coffee {
+    background: url(./img/blue_coffee.jpg) no-repeat;
+    background-size: cover;
+    background-position: 0 -100px;
+    width: 100%;
+    height: 95vh;
+
+    display: flex;
+    justify-content: right;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.b-coffee-title {
+    margin-right: 20vw;
+    margin-top: 15vh;
+    display:flex;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.b-coffee-text {
+    color:white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    max-width: 30rem;
+    justify-content: left;
+    padding-left: 2rem;
 }
