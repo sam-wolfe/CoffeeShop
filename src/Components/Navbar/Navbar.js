@@ -1,12 +1,20 @@
 import TextLogo from "../TextLogo/TextLogo";
 import "./nav.css";
 
-const Navbar = () => {
+const Navbar = ({scrollPosition, fadeout}) => {
+    // Fade out over fadeout count of scroll position
+    let fade_count = fadeout || 300;
+    const op = -100*((scrollPosition/fade_count)-1);
+    console.log(op)
+
     return (
-    <nav className="navbar">
-        <a href="#"  className="logo">
+        op > 0 && <nav className="navbar" style={{
+            opacity: op >= 0 ? `${op}%` : "0%"
+        
+    }}>
+        <a href="#" className="logo">
             <svg version="1.1" id="Layer_1" x="0px" y="0px"
-                viewBox="0 0 960 560" enable-background="new 0 0 960 560">
+                viewBox="0 0 960 560" enableBackground="new 0 0 960 560">
                 <path fill="white" d="M406.691,457.148C198.588,445.411,35.444,293.376,25.037,109.715c-2.079,12.163-3.494,24.545-4.203,37.119
                     C9.555,346.82,180.428,519.099,402.491,531.623c222.062,12.524,411.225-139.449,422.503-339.436
                     c0.71-12.574,0.695-25.037-0.003-37.356C793.998,336.157,614.793,468.885,406.691,457.148z"/>

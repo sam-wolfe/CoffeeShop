@@ -45,3 +45,124 @@ body {
     justify-content: left;
     padding-left: 2rem;
 }
+
+.offering-display {
+    width: 100%;
+    height: 150vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.food-icons {
+    width: 98vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+}
+
+.food-icon {
+    color: #F6AA50;
+    font-size: 130px;
+}
+
+.offering-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    max-width: 35vw;
+}
+
+.offering-map-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.BEANS {
+    background: linear-gradient(rgba(14,21,36,.7), rgba(14,21,36,.7)), url(./img/BEANS.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    filter: blur(5px);
+    z-index: -1;
+
+    display: flex;
+    justify-content: right;
+}
+
+.BEANS-overlay {
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.soushmead {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    margin-left: 16rem; 
+    cursor: pointer;
+}
+
+
+.leftTest {
+    align-self: flex-start;
+    width: 100%;
+}
+
+
+.rightTest {
+    align-self: flex-end;
+    margin-right: 16rem; 
+}
+
+
+.triptych {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.triptych-left {
+    background: url(./img/coffee_pour.jpg) no-repeat;
+    background-size: cover;
+    width: 30%;
+}
+
+.triptych-center {
+    width: 40%;
+    background-color: #C4C4C4;
+}
+
+.triptych-right {
+    background: url(./img/coffee_menu.jpg) no-repeat;
+    background-size: cover;
+    width: 30%;
+}
+
+.footer {
+    width: 100%;
+    height: 60vh;
+    background-color: #0E0E0E;
+    display: flex;
+}
