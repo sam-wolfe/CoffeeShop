@@ -1,5 +1,7 @@
+import BoxIcon from "../Outlines/BoxIcon";
 import TextLogo from "../TextLogo/TextLogo";
 import "./nav.css";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Navbar = ({scrollPosition, fadeout}) => {
     // Fade out over fadeout count of scroll position
@@ -8,6 +10,7 @@ const Navbar = ({scrollPosition, fadeout}) => {
     console.log(op)
 
     return (
+        // Make nav bar fade out, don't render if opaticy is 0%.
         op > 0 && <nav className="navbar" style={{
             opacity: op >= 0 ? `${op}%` : "0%"
         
@@ -34,7 +37,12 @@ const Navbar = ({scrollPosition, fadeout}) => {
         <ul className="nav-links">
             <li className="nav-item"><a href="#">Menu</a></li>
             <li className="nav-item"><a href="#">Order</a></li>
-            <li className="nav-item"><a href="#">Cart</a></li>
+            {/* TODO fix padding witout important */}
+            <li className="cart-icon">
+                <a href="#" className="cart-icon">
+                    <BoxIcon><AiOutlineShoppingCart /></BoxIcon>
+                </a>
+            </li>
         </ul>
     </nav>
   )

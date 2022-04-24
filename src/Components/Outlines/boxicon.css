@@ -1,0 +1,21 @@
+
+
+.box-icon {
+    background-color: rgb(190, 134, 190);
+    color: white;
+    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    padding-top: 0.4rem;
+    padding-left: 0.4rem;
+    border-radius: 12px;
+}
+
+.cart-icon {
+    padding: 0 !important;
+}
+
+.footer .box-icon {
+    /* TODO make boxicon component accept color config */
+    background: #F6AA50 !important;
+}
