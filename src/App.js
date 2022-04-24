@@ -12,10 +12,55 @@ import { FiTwitter } from "react-icons/fi";
 import Circle from './Components/Outlines/Cirlcle';
 import BoxIcon from './Components/Outlines/BoxIcon';
 import TextLogo from './Components/TextLogo/TextLogo';
+import Page from './Components/Pages/Page';
+import MenuGroup from './Components/Menu/MenuGroup';
+
+
+const drink_menu = [
+    {title: "Coffee", data: [
+        {name: "Drip", price: "2"},
+        {name: "Espresso", price: "2"},
+        {name: "Latte", price: "4"},
+        {name: "Mocha", price: "4"},
+        {name: "Americano ", price: "3"},
+    ]},
+    {title: "Tea", data: [
+        {name: "Steeped", price: "3"},
+        {name: "Matcha", price: "4"},
+        {name: "London Fog", price: "4"},
+        {name: "Chai Latte", price: "4"},
+    ]},
+    {title: "Cold", data: [
+        {name: "Iced Coffee", price: "3"},
+        {name: "Iced Tea", price: "3"},
+        {name: "Frappe ", price: "4"},
+    ]},
+    {title: "No Joe", data: [
+        {name: "Decaf", price: "2"},
+        {name: "Hot Chocolate", price: "2"},
+        {name: "Hot Apple Cider", price: "2"},
+        {name: "Strawberry Smoothie", price: "3"},
+        {name: "Lemonade", price: "3"},
+    ]}
+]
+
+const food_menu = [
+    {title: "Cupcakes", data: [
+        {name: "", price: ""},
+    ]},
+    {title: "Cookies", data: [
+        {name: "", price: ""},
+    ]},
+    {title: "Bread", data: [
+        {name: "", price: ""},
+    ]}
+]
 
 
 // TODO break into smaller components
 const App = () => {
+    const [pageID, setPageID] = useState("home");
+
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
       const position = window.pageYOffset;
@@ -30,9 +75,14 @@ const App = () => {
       };
     }, []);
 
+    const NavClickHander = (newPageID) => {
+        setPageID(newPageID);
+    };
+
   return (
     <div className="App" >
-        <Navbar scrollPosition={scrollPosition} fadeout={500} />
+        <Navbar scrollPosition={scrollPosition} fadeout={500} onNavClick={NavClickHander} />
+        <Page ID="home" pageID={pageID}>
         <div className="b-coffee">
             <div className="b-coffee-title">
                 <PlayfairTitle size={'4rem'}>Lorem Ipsum</PlayfairTitle>
@@ -109,6 +159,39 @@ const App = () => {
             </div>
             <div className="triptych-right"></div>
         </div>
+        </Page>
+        <Page ID="menu" pageID={pageID}>
+            <div className="menu-top">
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
+                <TextLogo />
+                <RobotoTitle size="6rem" weight="300">
+                    our menu
+                </RobotoTitle>
+            </div>
+            <div className="menu-display">
+                <div className="little-line"></div>
+                <div className="big-line"></div>
+                {/* TODO Turn menu-row into component */}
+                <div className="menu-row">
+                    {/* TODO reformat data so we can use map */}
+                    {food_menu.map((group) => <MenuGroup data={group.data}>{group.title}</MenuGroup>)}
+                </div>
+                <div className="big-line"></div>
+                <div className="menu-row">
+                    <MenuGroup>Cupcakes</MenuGroup>
+                    <MenuGroup>Cookies</MenuGroup>
+                    <MenuGroup>Bread</MenuGroup>
+                </div>
+                <div className="big-line"></div>
+                <div className="little-line"></div>
+            </div>
+        </Page>
         <div className="footer">
             <div className="footerDeets">
                 <div id="footerAddress">
@@ -130,6 +213,13 @@ const App = () => {
                 </div>
                 <div>
                 <p>Or email:</p>
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                {/* TODO BEFORE SUBMIT FORMAT FORM */}
                 <form>
                     <input type="text"></input>
                     <input type="text"></input>

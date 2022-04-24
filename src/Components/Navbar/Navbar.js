@@ -3,7 +3,7 @@ import TextLogo from "../TextLogo/TextLogo";
 import "./nav.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const Navbar = ({scrollPosition, fadeout}) => {
+const Navbar = ({scrollPosition, fadeout, onNavClick}) => {
     // Fade out over fadeout count of scroll position
     let fade_count = fadeout || 300;
     const op = -100*((scrollPosition/fade_count)-1);
@@ -35,8 +35,15 @@ const Navbar = ({scrollPosition, fadeout}) => {
         </a>
 
         <ul className="nav-links">
-            <li className="nav-item"><a href="#">Menu</a></li>
-            <li className="nav-item"><a href="#">Order</a></li>
+            <li onClick={() => {
+                 onNavClick("home");
+            }} className="nav-item"><a href="#">Home</a></li>
+            <li onClick={() => {
+                 onNavClick("menu");
+            }} className="nav-item"><a href="#">Menu</a></li>
+            <li onClick={() => {
+                 onNavClick("order");
+            }} className="nav-item"><a href="#">Order</a></li>
             {/* TODO fix padding witout important */}
             <li className="cart-icon">
                 <a href="#" className="cart-icon">
