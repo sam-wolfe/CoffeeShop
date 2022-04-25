@@ -1,0 +1,33 @@
+
+/* Don't look at this file, I was rushing... I'll fix it soon... */
+
+.cartitem {
+    font-size: 2rem;
+    font-family: 'Lato', sans-serif;
+    margin-right: 3rem;
+    background: white;
+    border-radius: 10px;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.size-holder {
+    display: flex;
+    align-items: center;
+    padding-right: 2rem;
+    cursor: pointer;
+}
+
+.reg {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+.large {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    display: inline-block;
+}

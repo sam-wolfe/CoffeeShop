@@ -1,11 +1,11 @@
 import "./TextLogo.css";
 
-const TextLogo = () => {
+const TextLogo = ({beeg}) => {
     return (
         <div className="textlogo">
-            <span className="textlogotop">coffee shop</span>
-            <span className="textlogobottom">NAME</span>
-        </div>
+            <span className={beeg ? 'textlogotop-beeg' : 'textlogotop'}>coffee shop</span>
+            <span className={beeg ? 'textlogobottom-beeg' : 'textlogobottom'}>NAME</span>
+        </div> 
     )
 }
 

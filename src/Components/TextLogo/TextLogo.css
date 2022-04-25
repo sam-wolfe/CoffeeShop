@@ -2,7 +2,7 @@
 .textlogo {
     font-family: 'Roboto Slab', serif;
     color: white;
-    width: 120px;
+    /* width: 120px; */
     display: inline-block;
 }
 
@@ -17,4 +17,20 @@
     font-weight: 800;
     display:block;
     font-size: 36px;
+}
+
+/* TODO Last minute hack to make bigger logo, 
+        fix later with props on component */
+
+.textlogotop-beeg {
+    font-weight: 300;
+    display:block;
+    font-size: 80px;
+    border-bottom: 1px solid white;
+}
+
+.textlogobottom-beeg {
+    font-weight: 800;
+    display:block;
+    font-size: 140px;
 }

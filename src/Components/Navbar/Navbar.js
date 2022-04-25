@@ -7,7 +7,6 @@ const Navbar = ({scrollPosition, fadeout, onNavClick}) => {
     // Fade out over fadeout count of scroll position
     let fade_count = fadeout || 300;
     const op = -100*((scrollPosition/fade_count)-1);
-    console.log(op)
 
     return (
         // Make nav bar fade out, don't render if opaticy is 0%.

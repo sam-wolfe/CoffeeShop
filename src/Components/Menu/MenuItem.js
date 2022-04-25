@@ -1,10 +1,11 @@
 
 import "./item.css";
 
-const MenuItem = (item) => {
+const MenuItem = ({name, price}) => {
     return (
-        <div>
-            <p>Espresso 5</p>
+        <div className="menuItemSpot">
+            <div>{name}</div>
+            <div>{price}</div>
         </div>
     )
 }

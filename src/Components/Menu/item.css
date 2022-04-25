@@ -1,0 +1,10 @@
+
+.menuItemSpot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add {
+    font-size: 1.2rem;
+    cursor: pointer;
+}

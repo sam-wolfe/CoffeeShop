@@ -14,6 +14,8 @@ import BoxIcon from './Components/Outlines/BoxIcon';
 import TextLogo from './Components/TextLogo/TextLogo';
 import Page from './Components/Pages/Page';
 import MenuGroup from './Components/Menu/MenuGroup';
+import OrderGroup from './Components/Menu/OrderGroup';
+import CartItem from './Components/Menu/CartItem';
 
 
 const drink_menu = [
@@ -39,20 +41,29 @@ const drink_menu = [
         {name: "Decaf", price: "2"},
         {name: "Hot Chocolate", price: "2"},
         {name: "Hot Apple Cider", price: "2"},
-        {name: "Strawberry Smoothie", price: "3"},
+        // {name: "Strawberry Smoothie", price: "3"},
         {name: "Lemonade", price: "3"},
     ]}
 ]
 
 const food_menu = [
     {title: "Cupcakes", data: [
-        {name: "", price: ""},
+        {name: "Chocolate Dream", price: "3"},
+        {name: "Vanilla Cream", price: "3"},
+        {name: "Strawberry Swirl", price: "4"},
+        {name: "Loaded Lemon", price: "4"},
     ]},
     {title: "Cookies", data: [
-        {name: "", price: ""},
+        {name: "Chunky Chocolate", price: "3"},
+        {name: "Perfect Peanut", price: "2"},
+        {name: "Oatmeal Raisin", price: "3"},
+        {name: "Spectacular Sugar", price: "2"},
     ]},
     {title: "Bread", data: [
-        {name: "", price: ""},
+        {name: "Banana Loaf", price: "2"},
+        {name: "Carrot Muffin", price: "2"},
+        {name: "Lemon Poppy seed", price: "2"},
+        {name: "Chocolate Muffin", price: "3"},
     ]}
 ]
 
@@ -60,6 +71,7 @@ const food_menu = [
 // TODO break into smaller components
 const App = () => {
     const [pageID, setPageID] = useState("home");
+    const [cart, setCart] = useState([]);
 
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
@@ -77,6 +89,12 @@ const App = () => {
 
     const NavClickHander = (newPageID) => {
         setPageID(newPageID);
+    };
+
+    const orderAddHandler = (itemName, drink) => {
+        // TODO hack for drink sizes, need to work into order selection menu
+        const newItem = {name: itemName, isDrink: drink || false}
+        setCart((prev) => [...prev, newItem])
     };
 
   return (
@@ -162,14 +180,7 @@ const App = () => {
         </Page>
         <Page ID="menu" pageID={pageID}>
             <div className="menu-top">
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                {/* TODO BEFORE SUBMIT FIX LOGO SIZE */}
-                <TextLogo />
+                <TextLogo beeg={true}/>
                 <RobotoTitle size="6rem" weight="300">
                     our menu
                 </RobotoTitle>
@@ -179,26 +190,59 @@ const App = () => {
                 <div className="big-line"></div>
                 {/* TODO Turn menu-row into component */}
                 <div className="menu-row">
-                    {/* TODO reformat data so we can use map */}
-                    {food_menu.map((group) => <MenuGroup data={group.data}>{group.title}</MenuGroup>)}
+                    {drink_menu.map((group) => <MenuGroup data={group.data}>{group.title}</MenuGroup>)}
                 </div>
                 <div className="big-line"></div>
                 <div className="menu-row">
-                    <MenuGroup>Cupcakes</MenuGroup>
-                    <MenuGroup>Cookies</MenuGroup>
-                    <MenuGroup>Bread</MenuGroup>
+                    {food_menu.map((group) => <MenuGroup data={group.data}>{group.title}</MenuGroup>)}
                 </div>
                 <div className="big-line"></div>
                 <div className="little-line"></div>
             </div>
         </Page>
+        <Page ID="order" pageID={pageID}>
+            <div className="order-top">
+                <RobotoTitle size="6rem" weight="300">
+                    Order online
+                </RobotoTitle>
+            </div>
+            <div className="order-display">
+                {/* TODO hack for last minute idea for order page, need to auto form 2by2 rows on order page */}
+                {/* TODO hack for last minute idea for order page, select drink size needs to be refactored */}
+                <div>
+                    <div className="menu-row m-10">
+                        {drink_menu.slice(0, 2).map((group) => <OrderGroup drink={true} data={group.data} orderAddHandler={orderAddHandler}>{group.title}</OrderGroup>)}
+                    </div>
+                    <div className="menu-row m-10">
+                        {drink_menu.slice(2, 4).map((group) => <OrderGroup drink={true} data={group.data} orderAddHandler={orderAddHandler}>{group.title}</OrderGroup>)}
+                    </div>
+                    <div className="menu-row m-10">
+                        {food_menu.slice(0, 2).map((group) => <OrderGroup data={group.data} orderAddHandler={orderAddHandler}>{group.title}</OrderGroup>)}
+                    </div>
+                    <div className="menu-row m-10">
+                        {food_menu.slice(2, 3).map((group) => <OrderGroup data={group.data} orderAddHandler={orderAddHandler}>{group.title}</OrderGroup>)}
+                    </div>
+                </div>
+                <div className="order-box">
+                    <div className="cart">
+                        {cart.map((item) => <CartItem drink={item.isDrink}>{item.name}</CartItem>)}
+                    </div>
+                    <div className="checkout-row">
+                        <button onClick={() => {
+                            setCart([])
+                        }}>Place order</button>
+                    </div>
+                </div>
+            </div>
+        </Page>
         <div className="footer">
             <div className="footerDeets">
                 <div id="footerAddress">
-                    <RobotoTitle>ADRESS</RobotoTitle> 
-                    <p>3562 Lorem ipsum</p>
-                    <p>Dolor suit amet</p>
-                    <p>Americuh</p>
+                    <RobotoTitle>ADDRESS</RobotoTitle> 
+                    <p>3562 Charles Blvd.</p>
+                    <p>Unit 3425</p>
+                    <p>Seattle, WA 23564</p>
+                    <p>USA</p>
                 </div>
                 <div id="footerHours">
                     <RobotoTitle>HOURS</RobotoTitle> 
@@ -210,20 +254,14 @@ const App = () => {
                 <div>
                 <RobotoTitle>CONTACT US</RobotoTitle> 
                 <p>(555) 555 - 5555</p>
+                <p>1 (800) 555 - 5555</p>
                 </div>
                 <div>
-                <p>Or email:</p>
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
-                {/* TODO BEFORE SUBMIT FORMAT FORM */}
+                <p>Or email us:</p>
                 <form>
-                    <input type="text"></input>
-                    <input type="text"></input>
-                    <textarea></textarea>
+                    <input type="text" placeholder="Email address"></input>
+                    <input type="text" placeholder="Subject"></input>
+                    <textarea resize="none"></textarea>
                     <button>Submit</button>
                 </form>
                 </div>
