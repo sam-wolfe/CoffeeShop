@@ -41,7 +41,6 @@ const drink_menu = [
         {name: "Decaf", price: "2"},
         {name: "Hot Chocolate", price: "2"},
         {name: "Hot Apple Cider", price: "2"},
-        // {name: "Strawberry Smoothie", price: "3"},
         {name: "Lemonade", price: "3"},
     ]}
 ]
@@ -283,7 +282,7 @@ const App = () => {
                 </a>
             </div>
             <div className="footerLogos">
-                {/* TODO make svg a component */}
+                {/* TODO make logo a component */}
                 <div className="logo">
                     <svg version="1.1" id="Layer_1" x="0px" y="0px"
                         viewBox="0 0 960 560" enableBackground="new 0 0 960 560">
